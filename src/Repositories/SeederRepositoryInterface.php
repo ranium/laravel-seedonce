@@ -27,4 +27,11 @@ interface SeederRepositoryInterface
      */
     public function delete($seeder);
 
+    /**
+     * Determine if the seeder repository exists.
+     *
+     * @return bool
+     */
+    public function repositoryExists();
+
 }

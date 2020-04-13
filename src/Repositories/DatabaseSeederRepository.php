@@ -106,4 +106,16 @@ class DatabaseSeederRepository implements SeederRepositoryInterface
     {
         return $this->resolver->connection();
     }
+
+    /**
+     * Determine if the seeder repository exists.
+     *
+     * @return bool
+     */
+    public function repositoryExists()
+    {
+        $schema = $this->getConnection()->getSchemaBuilder();
+
+        return $schema->hasTable($this->table);
+    }
 }

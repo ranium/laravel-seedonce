@@ -2,6 +2,7 @@
 
 namespace Ranium\SeedOnce;
 
+use Ranium\SeedOnce\Commands\Status;
 use Illuminate\Support\ServiceProvider;
 use Ranium\SeedOnce\Commands\MarkSeeded;
 use Illuminate\Contracts\Support\DeferrableProvider;
@@ -56,6 +57,7 @@ class SeedOnceServiceProvider extends ServiceProvider implements DeferrableProvi
         if ($this->app->runningInConsole()) {
             $this->commands([
                 MarkSeeded::class,
+                Status::class,
             ]);
         }
     }
