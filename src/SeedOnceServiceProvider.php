@@ -3,6 +3,7 @@
 namespace Ranium\SeedOnce;
 
 use Illuminate\Support\ServiceProvider;
+use Ranium\SeedOnce\Commands\MarkSeeded;
 use Illuminate\Contracts\Support\DeferrableProvider;
 use Ranium\SeedOnce\Repositories\DatabaseSeederRepository;
 use Ranium\SeedOnce\Repositories\SeederRepositoryInterface;
@@ -50,6 +51,12 @@ class SeedOnceServiceProvider extends ServiceProvider implements DeferrableProvi
             ], 'config');
 
             $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+        }
+
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                MarkSeeded::class,
+            ]);
         }
     }
 
