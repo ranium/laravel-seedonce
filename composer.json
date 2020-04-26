@@ -15,6 +15,14 @@
             "Ranium\\SeedOnce\\": "src"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Ranium\\SeedOnce\\Test\\": "tests"
+        },
+        "classmap": [
+            "tests/database/seeds"
+        ]
+    },
     "extra": {
         "laravel": {
             "providers": [
@@ -26,8 +34,11 @@
     "authors": [
         {
             "name": "Abbas Ali",
-            "email": "abbas@ranium.in"
+            "email": "abbas@ranium.in",
+            "homepage": "https://ranium.in",
+            "role": "Developer"
         }
     ],
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }

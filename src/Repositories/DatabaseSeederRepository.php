@@ -21,13 +21,6 @@ class DatabaseSeederRepository implements SeederRepositoryInterface
     protected $table;
 
     /**
-     * Array of classes that are seeded
-     *
-     * @var array
-     */
-    protected static $seeded = null;
-
-    /**
      * Create a new database seeder repository instance.
      *
      * @param  \Illuminate\Database\ConnectionResolverInterface  $resolver
@@ -47,13 +40,9 @@ class DatabaseSeederRepository implements SeederRepositoryInterface
      */
     public function getSeeded()
     {
-        if (self::$seeded === null) {
-            self::$seeded = $this->table()
-                    ->orderBy('seeded_at', 'asc')
-                    ->pluck('seeder')->all();
-        }
-
-        return self::$seeded;
+        return $this->table()
+            ->orderBy('seeded_at', 'asc')
+            ->pluck('seeder')->all();
     }
 
     /**
@@ -67,13 +56,6 @@ class DatabaseSeederRepository implements SeederRepositoryInterface
         $record = ['seeder' => $class, 'seeded_at' => now()];
 
         $this->table()->insert($record);
-
-        // If getSeeded() was not called in current request,
-        // then no need to push this class in the $seeded array.
-        // We will fetch fresh data from the db in that case.
-        if (self::$seeded !== null) {
-            self::$seeded[] = $class;
-        }
     }
 
     /**
