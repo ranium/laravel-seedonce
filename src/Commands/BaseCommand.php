@@ -61,7 +61,7 @@ class BaseCommand extends Command
         $this->container = $container;
         $this->repository = $repository;
     }
-    
+
     /**
      * Get the seeders to mark as seeded.
      * NOTE: DatabaseSeeder is always excluded.

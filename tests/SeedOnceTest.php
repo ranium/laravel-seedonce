@@ -20,15 +20,12 @@ class SeedOnceTest extends TestCase
     /** @test */
     public function it_migrates_seeders_table()
     {
-        $this->loadPackageMigrations();
         $this->assertTrue(Schema::hasTable('seeders'));
     }
 
     /** @test */
     public function it_stores_seeders()
     {
-        $this->loadPackageMigrations();
-
         $this->artisan('db:seed')->run();
 
         $this->assertDatabaseHas('seeders', [
@@ -39,8 +36,6 @@ class SeedOnceTest extends TestCase
     /** @test */
     public function it_runs_seeders_only_once()
     {
-        $this->loadPackageMigrations();
-
         $this->artisan('db:seed')->run();
 
         $this->artisan('db:seed')->run();

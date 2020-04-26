@@ -49,6 +49,8 @@ class TestCase extends BaseTestCase
             'database' => ':memory:',
             'prefix'   => '',
         ]);
+
+        $app->useDatabasePath(__DIR__ . '/database');
     }
 
     /**
@@ -59,6 +61,7 @@ class TestCase extends BaseTestCase
     protected function setupDb()
     {
         $this->loadLaravelMigrations();
+        $this->loadPackageMigrations();
     }
 
     /**
