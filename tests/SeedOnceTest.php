@@ -47,5 +47,6 @@ class SeedOnceTest extends TestCase
 
         // Find the count of rows in users table. It should be 1
         $this->assertEquals(DB::table('users')->count(), 1);
+        $this->assertEquals(DB::table('roles')->count(), 2);
     }
 }

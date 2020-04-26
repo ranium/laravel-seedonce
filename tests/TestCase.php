@@ -70,5 +70,8 @@ class TestCase extends BaseTestCase
     {
         // This runs the migrations included in the seedonce package
         $this->artisan('migrate')->run();
+
+        // Load migrations needed for testing this package
+        $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
     }
 }
