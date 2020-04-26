@@ -49,7 +49,7 @@ class SeedOnceServiceProvider extends ServiceProvider implements DeferrableProvi
         if (function_exists('config_path')) {
             $this->publishes([
                 __DIR__.'/../config/seedonce.php' => config_path('seedonce.php'),
-            ], 'config');
+            ], 'laravel-seedonce-config');
 
             $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         }
