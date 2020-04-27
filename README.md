@@ -116,6 +116,13 @@ Seeded? | Seeder
 Yes | UsersTableSeeder
 No | RolesTableSeeder
 
+## Testing
+
+The package unit tests can be executed with the following command (from inside package's root directory)
+```
+/path/to/phpunit
+```
+
 ## Credits
 
 - [Abbas Ali](https://github.com/abbasali)

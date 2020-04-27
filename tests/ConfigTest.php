@@ -1,22 +1,10 @@
 <?php
 namespace Ranium\SeedOnce\Test;
 
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
-use Ranium\SeedOnce\Repositories\SeederRepositoryInterface;
 
 class ConfigTest extends TestCase
 {
-    /**
-     * Set up test case
-     *
-     * @return void
-     */
-    public function setUp(): void
-    {
-        parent::setUp();
-    }
-
     /**
      * Define environment setup.
      *

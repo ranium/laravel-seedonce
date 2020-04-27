@@ -1,22 +1,8 @@
 <?php
 namespace Ranium\SeedOnce\Test;
 
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Schema;
-use Ranium\SeedOnce\Repositories\SeederRepositoryInterface;
-
 class MarkSeededTest extends TestCase
 {
-    /**
-     * Set up test case
-     *
-     * @return void
-     */
-    public function setUp(): void
-    {
-        parent::setUp();
-    }
-
     /** @test */
     public function it_can_mark_all_seeders_as_seeded()
     {
