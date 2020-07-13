@@ -71,10 +71,10 @@ trait SeedOnce {
      */
     protected function markSeeded($class)
     {
-        // We will mark class as seeded only if it is not DatabaseSeeder class.
-        // We are assuming that DatabaseSeeder never seeds directly and
+        // We will mark class as seeded only if it is not parent Database Seeder class.
+        // database_seeder class set in config never seeds directly and
         // always calls other seeder classes to seed.
-        if ($class !== 'DatabaseSeeder') {
+        if ($class !== config('seedonce.database_seeder')) {
             $this->repository()->log($class);
         }
     }

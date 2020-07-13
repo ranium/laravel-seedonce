@@ -64,7 +64,7 @@ class BaseCommand extends Command
 
     /**
      * Get the seeders to mark as seeded.
-     * NOTE: DatabaseSeeder is always excluded.
+     * NOTE: Main Database Seeder is always excluded.
      *
      * @param string $classOption Which class to get. "all" for all classes.
      * @return array
@@ -83,7 +83,7 @@ class BaseCommand extends Command
                 // Filter out classes based on option passed
                 return ($classOption === 'all' || $classOption === $class)
                     // We want to skip DatabaseSeeder as we never mark it as seeded
-                    && $class !== 'DatabaseSeeder';
+                    && $class !== config('seedonce.database_seeder');
             });
     }
 

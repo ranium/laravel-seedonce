@@ -20,6 +20,10 @@ class SeedOnceTest extends TestCase
         $this->assertDatabaseHas('seeders', [
             'seeder' => 'UsersTableSeeder'
         ]);
+
+        $this->assertDatabaseMissing('seeders', [
+            'seeder' => config('seedonce.database_seeder')
+        ]);
     }
 
     /** @test */
