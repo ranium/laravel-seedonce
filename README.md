@@ -8,7 +8,7 @@ The purpose of this package is to make it easier for the developers to run seede
 
 ## Assumption
 
-This package assumes that you use `DatabaseSeeder` class as the parent for running all other seeders. The `DatabaseSeeder` should never seed any data directly on its own. It should only be used to run other seeder classes.
+This package assumes that you use one seeder (ex.`DatabaseSeeder`) class as the main/parent for running all other seeders. This main seeder class should never seed any data directly on its own. It should only be used to run other seeder classes.
 
 ## Installation
 
@@ -32,9 +32,16 @@ php artisan migrate
 
 Note: This will create a table named `seeders` in your database. If you want to change this table's name, then you have to publish the package's config (above step) and modify the value of `table` in `config/seedonce.php`.
 
+## Configuration
+
+Once you have published the configuration file, you can edit it to suit your needs. Configuration options are as follows:
+
+- `table`: This is the name of the table that will hold the details of the seeders that have been executed. The default value is *seeders* which should work in most of the cases.
+- `database_seeder`: This is the name of the class that seeds all other seeders. In most of the cases this will be *DatabaseSeeder* which is the default value. Make sure to change this if you use a different class as the entry point to seed all other seeders.
+
 ## Usage
 
-Use the `Ranium\SeedOnce\Traits\SeedOnce` trait in all your seeder classes including the `DatabaseSeeder` class.
+Use the `Ranium\SeedOnce\Traits\SeedOnce` trait in all your seeder classes including the main seeder (ex. `DatabaseSeeder`) class.
 
 ```
 <?php
