@@ -13,7 +13,7 @@ trait SeedOnce {
      * @param  bool  $silent
      * @return $this
      */
-    public function call($class, $silent = false)
+    public function call($class, $silent = false, array $parameters = [])
     {
         if ($this->hasSeeded($class)) {
             if ($silent === false && isset($this->command)) {
@@ -22,7 +22,7 @@ trait SeedOnce {
             return $this;
         }
 
-        parent::call($class, $silent);
+        parent::call($class, $silent, $parameters);
 
         return $this;
     }
@@ -34,7 +34,7 @@ trait SeedOnce {
      *
      * @throws \InvalidArgumentException
      */
-    public function __invoke()
+    public function __invoke(array $parameters = [])
     {
         $class = get_class($this);
 
@@ -42,7 +42,7 @@ trait SeedOnce {
             return;
         }
 
-        $return = parent::__invoke();
+        $return = parent::__invoke($parameters);
 
         $this->markSeeded($class);
 
