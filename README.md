@@ -1,3 +1,18 @@
+<p align="center">
+    <a href="https://github.com/ranium/laravel-seedonce/actions">
+        <img src="https://github.com/ranium/laravel-seedonce/workflows/tests/badge.svg" alt="Build Status">
+    </a>
+    <a href="https://packagist.org/packages/ranium/laravel-seedonce">
+        <img src="https://img.shields.io/packagist/dt/ranium/laravel-seedonce" alt="Total Downloads">
+    </a>
+    <a href="https://packagist.org/packages/ranium/laravel-seedonce">
+        <img src="https://img.shields.io/packagist/v/ranium/laravel-seedonce" alt="Latest Stable Version">
+    </a>
+    <a href="https://packagist.org/packages/ranium/laravel-seedonce">
+        <img src="https://img.shields.io/packagist/l/ranium/laravel-seedonce" alt="License">
+    </a>
+</p>
+
 # Laravel SeedOnce
 
 This package works similar to `php artisan migrate`. When using this package, each seeder is seeded only once even if you run `php artisan db:seed` multiple times (on each deployment).
