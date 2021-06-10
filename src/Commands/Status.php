@@ -56,6 +56,10 @@ class Status extends BaseCommand
      */
     protected function getStatusFor(array $seeded, Collection $availableSeeders)
     {
+        $seeded = collect($seeded)->map(function ($_seeded){
+            return class_basename($_seeded);
+        })->toArray();
+
         return Collection::make($availableSeeders)
                     ->map(function ($seeder) use ($seeded) {
                         return in_array($seeder, $seeded)
