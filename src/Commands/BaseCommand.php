@@ -72,7 +72,7 @@ class BaseCommand extends Command
     protected function getSeeders($classOption = 'all')
     {
         // Read all files from the database/seeds directory
-        return Collection::make($this->laravel->databasePath().DIRECTORY_SEPARATOR.'seeds'.DIRECTORY_SEPARATOR)
+        return Collection::make($this->laravel->databasePath().DIRECTORY_SEPARATOR.'seeders'.DIRECTORY_SEPARATOR)
             ->flatMap(function ($path) {
                 return Str::endsWith($path, '.php') ? [$path] : $this->files->glob($path .'*.php');
             })
