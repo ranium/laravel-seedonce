@@ -72,7 +72,9 @@ class BaseCommand extends Command
     protected function getSeeders($classOption = 'all')
     {
         // Read all files from the database/seeds directory
-        return Collection::make($this->laravel->databasePath().DIRECTORY_SEPARATOR.'seeds'.DIRECTORY_SEPARATOR)
+        $seedersPath = $this->getSeederFolder();
+
+        return Collection::make($seedersPath)
             ->flatMap(function ($path) {
                 return Str::endsWith($path, '.php') ? [$path] : $this->files->glob($path .'*.php');
             })
@@ -95,7 +97,7 @@ class BaseCommand extends Command
      */
     protected function getSeederName($path)
     {
-        return str_replace('.php', '', basename($path));
+        return $this->getSeederNamespace() . str_replace('.php', '', basename($path));
     }
 
     /**
@@ -108,5 +110,33 @@ class BaseCommand extends Command
         $database = $this->input->getOption('database');
 
         return $database ?: $this->laravel['config']['database.default'];
+    }
+
+    /**
+     * @return string
+     */
+    protected function getSeederFolder()
+    {
+        return $this->laravel->databasePath() . DIRECTORY_SEPARATOR . config('seedonce.folder_seeder') . DIRECTORY_SEPARATOR;
+    }
+
+    /**
+     * @return string
+     */
+    protected function getSeederNamespace()
+    {
+        $composerJsonPath = base_path('composer.json');
+        $composerConfig = json_decode(file_get_contents($composerJsonPath), true);
+        $relativeSeederPath = str_replace($this->laravel->databasePath() . DIRECTORY_SEPARATOR, '', $this->getSeederFolder());
+
+        if ((float) app()->version() >= 8) {
+            $items = array_filter($composerConfig['autoload']['psr-4'], function ($item) use ($relativeSeederPath) {
+                return $item === $relativeSeederPath;
+            });
+
+            return array_keys($items)[0] ?? '';
+        }
+
+        return '';
     }
 }

@@ -53,6 +53,7 @@ Once you have published the configuration file, you can edit it to suit your nee
 
 - `table`: This is the name of the table that will hold the details of the seeders that have been executed. The default value is *seeders* which should work in most of the cases.
 - `database_seeder`: This is the name of the class that seeds all other seeders. In most of the cases this will be *DatabaseSeeder* which is the default value. Make sure to change this if you use a different class as the entry point to seed all other seeders.
+- `folder_seeder`: This is the folder of contains the seeders files laravel < 8 use *seeds* and laravel >= 8 use *seeders*
 
 ## Usage
 
@@ -142,7 +143,7 @@ No | RolesTableSeeder
 
 The package unit tests can be executed with the following command (from inside package's root directory)
 ```
-/path/to/phpunit
+composer test
 ```
 
 ## Credits
