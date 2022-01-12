@@ -85,7 +85,7 @@ class BaseCommand extends Command
                 // Filter out classes based on option passed
                 return ($classOption === 'all' || $classOption === $class)
                     // We want to skip DatabaseSeeder as we never mark it as seeded
-                    && $class !== config('seedonce.database_seeder');
+                    && class_basename($class) !== class_basename(config('seedonce.database_seeder'));
             });
     }
 
@@ -97,7 +97,7 @@ class BaseCommand extends Command
      */
     protected function getSeederName($path)
     {
-        return $this->getSeederNamespace() . str_replace('.php', '', basename($path));
+        return $this->getSeederNamespace() . str_replace('.php', '', class_basename($path));
     }
 
     /**
