@@ -3,6 +3,11 @@ namespace Ranium\SeedOnce\Test;
 
 class MarkSeededTest extends TestCase
 {
+    protected function defineEnvironment($app)
+    {
+        $app['config']->set('seedonce.folder_seeder', 'seeds');
+    }
+
     /** @test */
     public function it_can_mark_all_seeders_as_seeded()
     {

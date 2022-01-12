@@ -23,4 +23,16 @@ return [
     |
     */
     'database_seeder' => 'DatabaseSeeder',
+
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Folder Name
+    |--------------------------------------------------------------------------
+    |
+    | This value belongs to the folder where the seeders are housed
+    |
+    */
+    'folder_seeder' => (float) app()->version() >= 8 ? 'seeders' : 'seeds',
 ];
