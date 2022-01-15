@@ -127,11 +127,11 @@ class BaseCommand extends Command
     {
         $composerJsonPath = base_path('composer.json');
         $composerConfig = json_decode(file_get_contents($composerJsonPath), true);
-        $relativeSeederPath = str_replace($this->laravel->databasePath() . DIRECTORY_SEPARATOR, '', $this->getSeederFolder());
+        $seederConfigPath = config('seedonce.folder_seeder');
 
         if ((float) app()->version() >= 8) {
-            $items = array_filter($composerConfig['autoload']['psr-4'], function ($item) use ($relativeSeederPath) {
-                return $item === $relativeSeederPath;
+            $items = array_filter($composerConfig['autoload']['psr-4'], function ($item) use ($seederConfigPath) {
+                return Str::contains($item, $seederConfigPath);
             });
 
             return array_keys($items)[0] ?? '';
