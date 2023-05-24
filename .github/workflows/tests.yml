@@ -22,8 +22,6 @@ jobs:
             laravel: ^9.0
           - php: 7.4
             laravel: ^9.0
-          - php: 8.2
-            laravel: ^10.0 
 
     name: Run Test (P${{ matrix.php }} - L${{ matrix.laravel }})
 
