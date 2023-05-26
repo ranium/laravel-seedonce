@@ -3,7 +3,7 @@
     "description": "Laravel package to run seeders only once",
     "type": "library",
     "require": {
-        "php": "^7.2|^8.0|^8.2",
+        "php": "^7.2|^8.0|^8.1|^8.2",
         "illuminate/database": "^9.0"
     },
     "require-dev": {
