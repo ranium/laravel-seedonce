@@ -3,8 +3,8 @@
     "description": "Laravel package to run seeders only once",
     "type": "library",
     "require": {
-        "php": "^7.2|^8.0|^8.2",
-        "illuminate/database": "^9.0"
+        "php": "^7.2|^8.0|^8.1|^8.2",
+        "illuminate/database": "^8.0"
     },
     "require-dev": {
         "orchestra/testbench": "^3.8|^4.0|^5.0|^6.0|^7.0|^8.0",
