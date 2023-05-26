@@ -11,7 +11,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        php: [7.2, 7.4, 8.0, 8.2]
+        php: [7.2, 7.4, 8.0]
         laravel: [^6.0, ^7.0, ^8.0, ^9.0]
         exclude:
           # Exclude laravel 8 on php 7.2 as it requires php 7.3+
