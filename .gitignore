@@ -4,5 +4,3 @@ vendor
 tests/temp
 .idea
 .phpunit.result.cache
-.phpunit.xml.dist.bak
-.phpunit.cache
