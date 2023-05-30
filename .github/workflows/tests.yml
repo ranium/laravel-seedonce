@@ -17,10 +17,20 @@ jobs:
           # Exclude laravel 8 on php 7.2 as it requires php 7.3+
           - php: 7.2
             laravel: ^8.0
+          - php: 7.4
+            laravel: ^8.0
+          - php: 8.0
+            laravel: ^8.0
+          - php: 8.1
+            laravel: ^8.0
+          - php: 8.2
+            laravel: ^8.0
           # Exclude laravel 9 on php 7.2, 7.3 and 7.4 as it requires php 8.0+
           - php: 7.2
             laravel: ^9.0
           - php: 7.4
+            laravel: ^9.0
+          - php: 8.2
             laravel: ^9.0
           # Exclude laravel 10 on php 7.2, 7.3, 7.4 and 8.0 as it requires php 8.1+
           - php: 7.2
